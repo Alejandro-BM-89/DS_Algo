@@ -1,0 +1,26 @@
+# My generic algorithm for binary search in Python:
+
+def condition(mid):
+        if CONDITION_REQUIRED: #CONDITION_REQUIRED is adaptable for each problem
+                return 'found'
+        elif CONDITION_LEFT: #CONDITION_LEFT is adaptable for each problem
+                return 'left'
+        elif CONDITION_RIGHT: #CONDITION_RIGHT is adaptable for each problem
+                return 'right'
+
+def binary_search(low, high, condition):
+    # Initial values, todo list
+    while low <= high:
+        mid = (low + high) // 2
+        result = condition(mid)
+        if result == 'found':
+            return mid
+        elif result == 'left':
+            return binary_search(low, mid - 1, condition) 
+        else:
+            return binary_search(mid + 1, high, condition)
+            
+    return -1
+
+def solution_function(...)
+  return binary_search(low, high, condition)
